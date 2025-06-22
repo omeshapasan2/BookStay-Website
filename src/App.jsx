@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Download, Star, Heart, Search, MapPin, Calendar, Users, Smartphone, CheckCircle, Github, Linkedin, Mail, Globe, Phone } from 'lucide-react';
 import mockupImage from './assets/bookstay-mockup.png'; 
+import FeaturesComponent from './components/Features';
 
 // Header Component
 const Header = () => {
@@ -67,10 +68,18 @@ const HeroSection = () => {
               Book your next adventure with ease and style.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transform hover:scale-105 transition-all duration-200 shadow-lg shadow-blue-600/25">
-                <Download className="w-5 h-5" />
-                <span>Download APK</span>
-              </button>
+              <a 
+                href="https://media.omeshapasan.site/Downloads/BookStay.apk" 
+                download
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transform hover:scale-105 transition-all duration-200 shadow-lg shadow-blue-600/25">
+                  <Download className="w-5 h-5" />
+                  <span>Download APK</span>
+                </button>
+              </a>
+
               <button className="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-200">
                 View Features
               </button>
@@ -95,118 +104,74 @@ const HeroSection = () => {
 };
 
 // Features Section Component
-const FeaturesSection = () => {
-  const features = [
-    {
-      icon: <Search className="w-8 h-8" />,
-      title: "Smart Search & Filtering",
-      description: "Real-time hotel search with advanced filtering by price, location, and rating"
-    },
-    {
-      icon: <Heart className="w-8 h-8" />,
-      title: "Favorites Management",
-      description: "Save your favorite hotels with persistent storage across app sessions"
-    },
-    {
-      icon: <MapPin className="w-8 h-8" />,
-      title: "Hotel Discovery",
-      description: "Browse top nearby hotels with location-based recommendations"
-    },
-    {
-      icon: <Calendar className="w-8 h-8" />,
-      title: "Seamless Booking",
-      description: "Easy booking flow with trip management and booking history"
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "User Reviews",
-      description: "Read authentic reviews and ratings from verified guests"
-    },
-    {
-      icon: <Star className="w-8 h-8" />,
-      title: "Premium Experience",
-      description: "Modern UI with smooth animations and intuitive navigation"
-    }
-  ];
+// const FeaturesSection = () => {
+//   const features = [
+//     {
+//       icon: <Search className="w-8 h-8" />,
+//       title: "Smart Search & Filtering",
+//       description: "Real-time hotel search with advanced filtering by price, location, and rating"
+//     },
+//     {
+//       icon: <Heart className="w-8 h-8" />,
+//       title: "Favorites Management",
+//       description: "Save your favorite hotels with persistent storage across app sessions"
+//     },
+//     {
+//       icon: <MapPin className="w-8 h-8" />,
+//       title: "Hotel Discovery",
+//       description: "Browse top nearby hotels with location-based recommendations"
+//     },
+//     {
+//       icon: <Calendar className="w-8 h-8" />,
+//       title: "Seamless Booking",
+//       description: "Easy booking flow with trip management and booking history"
+//     },
+//     {
+//       icon: <Users className="w-8 h-8" />,
+//       title: "User Reviews",
+//       description: "Read authentic reviews and ratings from verified guests"
+//     },
+//     {
+//       icon: <Star className="w-8 h-8" />,
+//       title: "Premium Experience",
+//       description: "Modern UI with smooth animations and intuitive navigation"
+//     }
+//   ];
 
-  return (
-    <section id="features" className="py-20 bg-black">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Powerful Features for
-            <span className="text-blue-400 block">Modern Travelers</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Everything you need to find, book, and manage your perfect hotel stay, 
-            all in one beautifully designed mobile application.
-          </p>
-        </div>
+//   return (
+//     <section id="features" className="py-20 bg-black">
+//       <div className="container mx-auto px-6">
+//         <div className="text-center mb-16">
+//           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+//             Powerful Features for
+//             <span className="text-blue-400 block">Modern Travelers</span>
+//           </h2>
+//           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+//             Everything you need to find, book, and manage your perfect hotel stay, 
+//             all in one beautifully designed mobile application.
+//           </p>
+//         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 hover:border-blue-500/50 group"
-            >
-              <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+//           {features.map((feature, index) => (
+//             <div
+//               key={index}
+//               className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 hover:border-blue-500/50 group"
+//             >
+//               <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+//                 {feature.icon}
+//               </div>
+//               <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+//               <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
-// Download Section Component
-const DownloadSection = () => {
-  const stats = [
-    { number: "10K+", label: "Hotels Listed" },
-    { number: "50K+", label: "Happy Users" },
-    { number: "4.8", label: "App Rating" },
-    { number: "24/7", label: "Support" }
-  ];
 
-  return (
-    <section id="download" className="py-20 bg-black">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Start Your
-            <span className="text-blue-400 block">Journey?</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12">
-            Join thousands of travelers who trust BookStay for their accommodation needs. 
-            Download now and discover your next perfect stay.
-          </p>
-          
-          <div className="flex justify-center mb-12">
-            <a 
-              href="https://bookstay.omeshapasan.site"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-lg flex items-center space-x-3 transform hover:scale-105 transition-all duration-200 shadow-lg shadow-blue-600/25"
-            >
-              <Download className="w-6 h-6" />
-              <span>Download BookStay APK</span>
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">{stat.number}</div>
-                <div className="text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // Tech Stack Component
 const TechStackSection = () => {
@@ -354,8 +319,7 @@ const App = () => {
     <div className="bg-black min-h-screen">
       <Header />
       <HeroSection />
-      <FeaturesSection />
-      <DownloadSection />
+      <FeaturesComponent />
       <TechStackSection />
       <ContactSection />
       <Footer />
